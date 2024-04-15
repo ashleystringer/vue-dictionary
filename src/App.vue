@@ -6,7 +6,6 @@ import SearchBar from "./components/SearchBar.vue";
 </script>
 
 <template>
-  <div>Testing App</div>
   <SearchBar />
   <br/>
   <WordEntry />

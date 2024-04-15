@@ -11,18 +11,25 @@ const wordEntry = ref(null);
       console.log(wordEntry.value[0].word);
     });
 
-
 </script>
 
 <template>
   <div v-if="wordEntry">
     <p>Word: {{ wordEntry[0].word }} </p>
-    <p>Phonetic: {{ wordEntry[0].phonetic }} </p>
     <p>Phonetics: {{ wordEntry[0].word }} </p>
-    <p>Origin: {{ wordEntry[0].origin }} </p>
-    <p>Meanings: {{ wordEntry[0].word }} </p>
-    <p>Part of speech: {{ wordEntry[0].word }} </p>
-  
+    <ul>
+      <li v-for="phonetic in wordEntry[0].phonetics" :key="phonetic.id">
+        <div>{{ phonetic.text }}</div>
+      </li>
+    </ul>
+    <p>Meaning</p>
+    <ul>
+      <li v-for="meaning in wordEntry[0].meanings" :key="meaning.id">
+        <div>{{ meaning.partOfSpeech }}</div>
+        <div>{{ meaning.definitions[0].definition }}</div>
+        <div>{{ meaning.definitions[0].example }}</div>
+      </li>
+    </ul>
   </div>
 </template>
 
